@@ -17,8 +17,10 @@ export default defineConfig({
     // 自动打开浏览器
     open: true,
     // 主机名
-    host: 'localhost'
+    host: 'localhost',
+   
   },
+ 
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

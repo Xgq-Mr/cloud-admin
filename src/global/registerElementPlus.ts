@@ -4,7 +4,7 @@ import "element-plus/dist/index.css"
 import type { App } from "vue"
 
 export default {
-    install(app:App){
+    install:(app:App)=>{
         app.use(ElementPlus)
     }
 }
