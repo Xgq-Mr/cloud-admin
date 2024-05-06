@@ -18,7 +18,7 @@ export default defineConfig({
     open: true,
     // 主机名
     host: 'localhost',
-   
+    
   },
  
   resolve: {

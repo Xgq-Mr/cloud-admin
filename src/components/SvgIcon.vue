@@ -26,6 +26,8 @@ const render = () => {
             size: props.size,
             color: props.color
         }, [h(resolveComponent(props.icon))])
+    }else{
+        return h("i")
     }
 }
 
