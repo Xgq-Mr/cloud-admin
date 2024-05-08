@@ -30,6 +30,7 @@ const dynamicRoutes: RouteRecordRaw[] = [
       {
         path: "/system",
         name: "System",
+        redirect:"/system/menu",
         meta: {
           // 面包屑显示内容
           title: "系统管理",
@@ -92,6 +93,7 @@ const dynamicRoutes: RouteRecordRaw[] = [
       {
         path: "/goods",
         name: "Goods",
+        redirect:"/goods/list",
         meta: {
           // 面包屑显示内容
           title: "商品管理",

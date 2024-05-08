@@ -19,7 +19,6 @@ const app = createApp(App);
 //         console.log("app2",app);
 //     }
 // })
-console.log("env",import.meta.env.VITE_APP_BASE_API);
 
 // 挂载全局二次封装
 app.use(setRegisterGlobal)
