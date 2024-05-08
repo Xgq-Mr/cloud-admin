@@ -8,6 +8,6 @@ export default {
     for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
       app.component(key, component);
     }
-    app.component("SvgIcon", SvgIcon)
+    app.component("svg-icon", SvgIcon)
   },
 };

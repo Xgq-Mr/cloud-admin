@@ -5,6 +5,9 @@ import setRegisterGlobal from "@/global"
 import App from "./App.vue";
 import router from "./router";
 
+// 挂载样式
+import "./styles/index.scss"
+
 const app = createApp(App);
 
 // app.use 方法可以接受一个箭头函数 也可以接受一个对象 对象里面install方法自调用 参数为app
