@@ -21,7 +21,7 @@ const dynamicRoutes: RouteRecordRaw[] = [
           // 菜单图标
           icon: "Menu",
           // 页面是否需要缓存 false 为不缓存 true 为缓存
-          cache: false,
+          cache: true,
           // 控制当前路由是否为菜单 false 为显示 true 为隐藏
           hidden: false,
         },

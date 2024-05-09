@@ -5,13 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "test":"vite --mode test",
+    "test": "vite --mode test",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --build --force"
   },
   "dependencies": {
+    "@vueuse/core": "^10.9.0",
     "axios": "^1.6.8",
     "element-plus": "^2.7.2",
     "mockjs": "^1.1.0",
