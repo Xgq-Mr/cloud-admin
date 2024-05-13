@@ -7,7 +7,7 @@ import axios, {
   type AxiosRequestConfig,
   type Method
 } from "axios";
-
+import {useUserInfo} from "@/stores/useUserInfo"
 // 创建axios实例
 const http: AxiosInstance = axios.create({
   baseURL : import.meta.env.VITE_APP_BASE_API,
@@ -18,6 +18,10 @@ const http: AxiosInstance = axios.create({
 // 请求拦截器
 http.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
+    const store = useUserInfo()
+    if(store.token){
+      config.headers!.Authorization = "Bearer " +store.token
+    }
     return config;
   },
   (error: AxiosError) => {
@@ -28,7 +32,7 @@ http.interceptors.request.use(
 // 响应拦截器
 http.interceptors.response.use(
   (response: AxiosResponse) => {
-    return response;
+    return response.data;
   },
   (error: AxiosError) => {
     return Promise.reject(error);

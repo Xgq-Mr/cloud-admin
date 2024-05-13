@@ -23,7 +23,7 @@ export default defineConfig(({mode}) => {
       proxy: {
         [env.VITE_APP_BASE_API]: {
           // 跨域地址
-          target: "http://ceshi7.dishait.cn",
+          target: "https://mock.apifox.com/m1/4461329-0-default",
           // 是否跨域
           changeOrigin: true,
           // 路径重写

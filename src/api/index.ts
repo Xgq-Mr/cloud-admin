@@ -1,19 +1,9 @@
 import request from "../utils/request";
 
-type resType = {
-  code: number;
-  status: string;
-  data:Object;
-  message:string;
-};
-
-type resultType = {
-  result: resType[];
-};
-
-  export const test = () => request<resultType>(
-  "/admin/login", 
-  "POST",
-  {username : "admin", password : "admin"}
-);                                                                                                                                                                                                                                                                                                                                                                                                           
-                                                                                                                                                                                                                   
+// 登录接口
+export const loginApi = (data:any)=> request("/auth/token","POST",data)
+// 获取用户信息
+export const userInfoApi = ()=> request("/system/menu/user","GET")
+// 退出登录
+export const logoutApi = ()=>request("/auth/layout","POST")
+                                                                                                                                                                                                         
