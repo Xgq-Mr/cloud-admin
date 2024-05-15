@@ -17,7 +17,8 @@ const props = withDefaults(defineProps<{
     size?: string
 }>(), {
     icon: "",
-    size: "18"
+    size: "18",
+    color:""
 })
 
 const render = () => {
@@ -25,7 +26,7 @@ const render = () => {
         return h(resolveComponent("el-icon"), {
             size: props.size,
             color: props.color
-        }, [h(resolveComponent(props.icon))])
+        }, ()=>h(resolveComponent(props.icon)))
     }else{
         return h("i")
     }
