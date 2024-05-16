@@ -14,3 +14,9 @@ export const addRoleApi = (roleParams:AddParams)=>request("/system/role","POST",
 
 // 编辑角色
 export const editRoleApi = (roleParams:AddParams)=>request("/system/role","PUT",roleParams)
+
+// 封装默认选中的树形ID
+export const checkedIdsApi = (roleId:number|string)=>request(`/system/role/${roleId}/menu/ids`)
+
+// 提交权限接口
+export const saveRoleApi = (roleId:string,saveParams:string[])=>request(`/system/role/${roleId}/menu/ids`,"POST",saveParams)

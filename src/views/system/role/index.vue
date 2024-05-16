@@ -34,7 +34,7 @@
       <el-table-column label="备注" prop="remark" />
       <el-table-column label="操作" width="300">
         <template #default="{ row }">
-          <el-button type="primary" link icon="edit" @click="handlePermission(row.roleName)">分配权限</el-button>
+          <el-button type="primary" link icon="edit" @click="handlePermission(row.roleName,row.id)">分配权限</el-button>
           <el-button type="warning" link icon="edit" @click="handleEdit(row)">编辑</el-button>
           <el-popconfirm
             width="auto"
@@ -140,8 +140,8 @@ const handleEdit = (row: ResponseRoleListType)=>{
   RoleDialogRef.value!.openDialog("编辑角色","edit",{row})
 }
 // 分配权限
-const handlePermission = (roleName:string)=>{
-  RolePermissionRef.value!.openDrawer(roleName)
+const handlePermission = (roleName:string,id:string)=>{
+  RolePermissionRef.value!.openDrawer(roleName,id)
 }
 
 // 子组件添加或修改后通知父组件

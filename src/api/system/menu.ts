@@ -2,7 +2,7 @@ import type { AddParamsType, EditParamsType, ResponseMenuType, SelectMenuType } 
 import request from "@/utils/request"
 
 // 菜单列表接口
-export const getMenuApi = (data: Object) => request<ResponseMenuType>("/system/menu/search", "POST", data)
+export const getMenuApi = (data?: Object) => request<ResponseMenuType>("/system/menu/search", "POST", data)
 
 // 删除列表
 export const delMenuApi = (id: number | string) => request(`/system/menu/` + id, "DELETE")
