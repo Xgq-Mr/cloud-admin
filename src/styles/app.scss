@@ -1,0 +1,143 @@
+:root {
+    --jy-color-white: #fff;
+    --jy-color-black: #2b2f38;
+    --jy-color-primary: #1966ff;
+    --jy-border-color: #f1f2f3;
+    --jy-color-hover: #3c3c3c;
+    // 边框色
+    --jy-color-border: #eee;
+    // 菜单的背景色
+    --jy-bg-menuMainColor: var(--jy-color-white) !important;
+    // 选中的菜单背景色
+    --jy-bg-menuActiveColor: var(--jy-color-black) !important;
+    // 鼠标移入到菜单的背景色
+    --jy-bg-menuHoverColor: var(--jy-color-black) !important;
+    // 菜单文字默认颜色
+    --jy-text-menuMainColor: var(--jy-color-black) !important;
+    //  选中的菜单文字颜色
+    --jy-text-menuActiveColor: var(--jy-color-white) !important;
+    // 鼠标移入到菜单的文字色
+    --jy-text-menuHoverColor: var(--jy-color-white) !important;
+    // header的背景颜色
+    --jy-bg-headerBarColor: var(--jy-color-white) !important;
+    --jy-color-user-hover: var(--jy-color-hover-rgba) !important;
+    --jy-border-color-light: var(--jy-border-color) !important;
+}
+
+// 内容区样式
+.layout-container {
+    // 侧边栏样式
+    .layout-aside {
+        transition: width 0.3s linear;
+        border-right: 2px solid var(--jy-color-border) !important;
+        .layout-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 52px;
+            color: var(--el-color-primary);
+            font-size: 13px;
+            cursor: pointer; // 鼠标滑过变成小手
+        }
+    }
+    // 头部样式
+    .layout-header {
+        display: flex;
+        justify-content: space-between;
+        height: 52px;
+        padding: 0 5px !important;
+        border-bottom: 2px solid var(--jy-color-border) !important;
+        align-items: center;
+        // background-color: #fff!important;
+        .layout-header-left {
+            .layout-left-breadcrumb a {
+                cursor: pointer;
+            }
+        }
+        .layout-header-right {
+            height: inherit;
+            .layout-header-right-icon {
+                cursor: pointer;
+                padding: 10px;
+                &:hover {
+                    background-color: var(--jy-color-border) !important;
+                }
+            }
+            .el-dropdown-link {
+                outline: none !important;
+            }
+        }
+    }
+
+    // 内容区域
+    .layout-main {
+        width: 100%;
+        height: 100%;
+        .el-scrollbar__view {
+            width: 100%;
+            height: 100%;
+        }
+        .error-401 {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            // background-color: red;
+            .error-container {
+                p {
+                    color: gray;
+                    font-size: 12px;
+                    margin: 15px 0 20px;
+                }
+            }
+        }
+       
+    }
+}
+
+
+// menu样式
+.el-menu {
+    border-right: none !important; // 去除menu的边框
+    // 划过背景色变化
+    .el-menu-item:hover {
+        background-color: var(--jy-bg-menuActiveColor) !important;
+        color: var(--jy-bg-menuMainColor) !important;
+    }
+    // 选中后背景色
+    .el-menu-item.is-active {
+        background-color: var(--jy-bg-menuActiveColor) !important;
+        color: var(--jy-bg-menuMainColor) !important;
+    }
+    //
+    .el-sub-menu__title:hover {
+        // color: white !important;
+        background-color: transparent !important;
+    }
+}
+
+.dark2 {
+    border-right: none !important; // 去除menu的边框
+    // 划过背景色变化
+    .el-menu-item:hover {
+        background-color: var(--jy-bg-menuMainColor) !important;
+        color: var(--jy-bg-menuActiveColor) !important;
+    }
+    // 选中后背景色
+    .el-menu-item.is-active {
+        background-color: var(--jy-color-primary) !important;
+        color: var(--jy-bg-menuMainColor) !important;
+    }
+
+    //
+    .el-sub-menu__title:hover {
+        // color: white !important;
+        background-color: transparent !important;
+    }
+    .el-menu-item,
+    .el-sub-menu__title {
+        color: var(--jy-bg-menuMainColor) !important;
+    }
+}
