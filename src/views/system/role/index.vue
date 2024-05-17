@@ -34,7 +34,7 @@
       <el-table-column label="备注" prop="remark" />
       <el-table-column label="操作" width="300">
         <template #default="{ row }">
-          <el-button type="primary" link icon="edit" @click="handlePermission(row.roleName,row.id)">分配权限</el-button>
+          <el-button type="primary" link icon="Check" @click="handlePermission(row.roleName,row.id)">分配权限</el-button>
           <el-button type="warning" link icon="edit" @click="handleEdit(row)">编辑</el-button>
           <el-popconfirm
             width="auto"
