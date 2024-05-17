@@ -2,8 +2,13 @@
 import { delUserApi, getUserListApi } from "@/api/system/user";
 import type { userResponseType } from "@/types/user";
 import { ElMessage, ElNotification } from "element-plus";
-import { ref,defineAsyncComponent } from "vue";
-const userDialog = defineAsyncComponent(()=>import("./components/userDialog.vue"))
+import { ref, defineAsyncComponent } from "vue";
+const userDialog = defineAsyncComponent(
+  () => import("./components/userDialog.vue")
+);
+const PassDialog = defineAsyncComponent(
+  () => import("./components/passDialog.vue")
+);
 // 请求列表数据
 const queryData = ref({
   keyword: "",
@@ -46,22 +51,28 @@ const handleDelete = async (id: string) => {
   }
 };
 // 子组件ref
-const userDialogRef = ref<InstanceType<typeof userDialog>>()
+const userDialogRef = ref<InstanceType<typeof userDialog>>();
+const passDialogRef = ref<InstanceType<typeof PassDialog>>();
 // 新增用户
-const handleAdd = ()=>{
-  userDialogRef.value?.openDialog("add","新增用户")
-}
+const handleAdd = () => {
+  userDialogRef.value?.openDialog("add", "新增用户");
+};
 // 编辑用户
-const handleEdit = (row:userResponseType)=>{
-  userDialogRef.value?.openDialog("edit","修改用户",{row})
+const handleEdit = (row: userResponseType) => {
+  userDialogRef.value?.openDialog("edit", "修改用户", { row });
+};
+// 重置模态框
+const resetPassword = (row:userResponseType)=>{
+  passDialogRef.value?.openDialog(`重置密码【${row.nickName}】`,row.id)
 }
 </script>
 <template>
-  
   <div class="user layout-padding layout-system-user">
     <!-- 新增模态框 -->
-  <userDialog ref="userDialogRef"/>
-  <!-- 头部内容 -->
+    <userDialog ref="userDialogRef" />
+    <!-- 重置密码模态框 -->
+    <PassDialog ref="passDialogRef" />
+    <!-- 头部内容 -->
     <div class="system-menu-search">
       <el-form :model="queryData" :inline="true">
         <el-form-item>
@@ -76,7 +87,9 @@ const handleEdit = (row:userResponseType)=>{
           >
         </el-form-item>
         <el-form-item>
-          <el-button icon="plus" type="success" @click="handleAdd">新增用戶</el-button>
+          <el-button icon="plus" type="success" @click="handleAdd"
+            >新增用戶</el-button
+          >
         </el-form-item>
       </el-form>
     </div>
@@ -136,8 +149,10 @@ const handleEdit = (row:userResponseType)=>{
       />
       <el-table-column align="center" label="操作" width="260">
         <template #default="{ row }">
-          <el-button type="primary" link icon="key">密码重置</el-button>
-          <el-button type="warning" link icon="edit" @click="handleEdit(row)">编辑</el-button>
+          <el-button type="primary" link icon="key" @click="resetPassword(row)">密码重置</el-button>
+          <el-button type="warning" link icon="edit" @click="handleEdit(row)"
+            >编辑</el-button
+          >
           <el-popconfirm
             width="220"
             confirm-button-text="确定"
