@@ -1,40 +1,20 @@
 <template>
-  <el-drawer
-    v-model="visible"
-    :title="drawerTitle"
-    direction="rtl"
-    @close="handleClose"
-  >
+  <el-drawer v-model="visible" :title="drawerTitle" direction="rtl" @close="handleClose">
     <!-- 树形数据 -->
-    <el-tree
-      style="max-width: 600px"
-      :data="data"
-      show-checkbox
-      node-key="id"
-      ref="treeRef"
-      :default-expand-all="defaultExpandAll"
-      :props="defaultProps"
-    >
+    <el-tree style="max-width: 600px" :data="data" show-checkbox node-key="id" ref="treeRef"
+      :default-expand-all="defaultExpandAll" :props="defaultProps">
       <!-- 由于有三级情况所以需要自定义节点内容 -->
       <template #default="{ node, data }">
         <span class="custom-tree-node flex-center">
-          <svg-icon
-            v-if="data.meta.icon"
-            :icon="filters(data.meta.icon)"
-          ></svg-icon>
+          <svg-icon v-if="data.meta.icon" :icon="filters(data.meta.icon)"></svg-icon>
           <span>{{ data.meta.title }}</span>
         </span>
       </template>
     </el-tree>
     <!-- 底部按钮 -->
     <template #footer>
-      <el-popconfirm
-        width="220"
-        confirm-button-text="确定"
-        cancel-button-text="取消"
-        title="确定提交权限吗?"
-        @confirm="handleConfirm"
-      >
+      <el-popconfirm width="220" confirm-button-text="确定" cancel-button-text="取消" title="确定提交权限吗?"
+        @confirm="handleConfirm">
         <template #reference>
           <el-button type="primary">提交</el-button>
         </template>
